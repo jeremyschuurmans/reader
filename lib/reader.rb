@@ -1,6 +1,7 @@
-require "reader/version"
+require 'pry'
+
+require_relative "reader/version"
+require_relative "reader/book"
 
 module Reader
-  class Error < StandardError; end
-  # Your code goes here...
 end
