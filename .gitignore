@@ -7,5 +7,8 @@
 /spec/reports/
 /tmp/
 
+# Google Books API key
+.env
+
 # rspec failure tracking
 .rspec_status
