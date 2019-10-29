@@ -1,15 +1,18 @@
 require 'spec_helper'
+require 'pry'
 
 RSpec.describe Reader::Book do
 
   describe 'Book' do
-    let(:book) { Reader::Book.new( title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', publisher: 'Scribners') }
+    let(:book) { Reader::Book.new('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribners' ) }
+    
+    let(:another_book) { Reader::Book.new('The Sun Also Rises', 'Ernest Hemingway', 'Scribners' ) }
 
-    describe 'books' do
-      it 'is a hash' do
-        books = Reader::Book.class_variable_get(:@@books)
+    let(:books) { Reader::Book.class_variable_get(:@@books) }
 
-        expect(books).to be_a(Hash)
+    describe '@@books' do
+      it 'is an array' do
+        expect(books).to be_a(Array)
       end
     end
 
@@ -22,10 +25,11 @@ RSpec.describe Reader::Book do
     end
 
     describe '.all' do
-      it 'returns books hash' do
-        expect(Reader::Book.all).to be_a_kind_of(Hash)
-
-        expect(Reader::Book.all).to include('title' => 'The Great Gatsby')
+      it 'returns array of Book objects' do
+        expect(Reader::Book.all).to be_a_kind_of(Array)
+        
+        expect(Reader::Book.all).to include(book)
+        expect(Reader::Book.all).to include(another_book)
       end
     end
   end
