@@ -5,11 +5,11 @@ RSpec.describe Reader::Book do
   describe 'Book' do
     let(:book) { Reader::Book.new( title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', publisher: 'Scribners') }
 
-    describe '@@all' do
+    describe 'books' do
       it 'is a hash' do
-        all = Reader::Book.class_variable_get(:@@all)
+        books = Reader::Book.class_variable_get(:@@books)
 
-        expect(all).to be_a(Hash)
+        expect(books).to be_a(Hash)
       end
     end
 
@@ -18,6 +18,14 @@ RSpec.describe Reader::Book do
         expect(book.title).to eq('The Great Gatsby')
         expect(book.author).to eq('F. Scott Fitzgerald')
         expect(book.publisher).to eq('Scribners')
+      end
+    end
+
+    describe '.all' do
+      it 'returns books hash' do
+        expect(Reader::Book.all).to be_a_kind_of(Hash)
+
+        expect(Reader::Book.all).to include('title' => 'The Great Gatsby')
       end
     end
   end
