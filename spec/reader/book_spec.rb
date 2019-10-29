@@ -10,6 +10,8 @@ RSpec.describe Reader::Book do
     describe '#initialize' do
       it 'initializes with a title, author, and publishing company' do
         expect(book.title).to eq('The Great Gatsby')
+        expect(book.author).to eq('F. Scott Fitzgerald')
+        expect(book.publisher).to eq('Scribners')
       end
     end
   end

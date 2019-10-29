@@ -3,6 +3,8 @@ class Reader::Book
 
   def initialize(title, author, publisher)
     @title = title
+    @author = author
+    @publisher = publisher
   end
 
 end
