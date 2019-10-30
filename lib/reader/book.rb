@@ -15,5 +15,3 @@ class Reader::Book
     @@books
   end
 end
-
-
