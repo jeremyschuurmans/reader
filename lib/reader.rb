@@ -1,4 +1,5 @@
 require 'pry'
+require 'dotenv/load'
 
 require_relative 'reader/version'
 require_relative 'reader/book'
