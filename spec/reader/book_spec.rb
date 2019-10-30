@@ -22,6 +22,10 @@ RSpec.describe Reader::Book do
         expect(book.author).to eq('F. Scott Fitzgerald')
         expect(book.publisher).to eq('Scribners')
       end
+
+      it 'defaults subtitle to nil when no subtitle is given' do
+        expect(book.subtitle).to eq(nil)
+      end
     end
 
     describe '.all' do
