@@ -57,6 +57,10 @@ class Reader::CLI
     puts "Saved!"
   end
 
+  def view_list
+
+  end
+
 
 
 
