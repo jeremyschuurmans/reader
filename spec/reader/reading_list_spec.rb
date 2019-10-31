@@ -17,13 +17,13 @@ RSpec.describe Reader::ReadingList do
       Reader::ReadingList.add_to_list(book_2)
 
       expect(list[0].title).to eq('Ruby on Rails Tutorial')
-      expect(list[1].title).to eq('The Great Gatsby')
+      expect(list[1].title).to eq('Ruby')
       expect(list[0].subtitle).to eq('Learn Web Development with Rails')
       expect(list[1].subtitle).to eq(nil)
       expect(list[0].author).to eq('Michael Hartl')
-      expect(list[1].author).to eq('F. Scott Fitzgerald')
+      expect(list[1].author).to eq('Cynthia Bond')
       expect(list[0].publisher).to eq('Addison-Wesley')
-      expect(list[1].publisher).to eq('Scribners')
+      expect(list[1].publisher).to eq('Hogarth Press')
     end
   end
 

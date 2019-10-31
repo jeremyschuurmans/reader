@@ -14,4 +14,8 @@ class Reader::Book
   def self.all
     @@books
   end
+
+  def self.clear
+    @@books = []
+  end
 end
