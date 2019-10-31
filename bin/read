@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/reader.rb'
+
+Reader::CLI.new.call
