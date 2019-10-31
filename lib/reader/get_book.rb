@@ -12,7 +12,11 @@ class Reader::GetBook
       title = item['volumeInfo']['title']
       subtitle = item['volumeInfo']['subtitle']
       author = item ['volumeInfo']['authors'].join(', ')
-      publisher = item['volumeInfo']['publisher']
+      if item['volumeInfo']['publisher']
+        publisher = item['volumeInfo']['publisher']
+      else
+        publisher = 'Publisher not found'
+      end
       
       Reader::Book.new(title, subtitle, author, publisher)
     end
