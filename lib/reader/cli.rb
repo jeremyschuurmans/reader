@@ -3,15 +3,29 @@ class Reader::CLI
 
   def initialize
     puts "Welcome to Reader!"
-    puts "To find a book to read, type a word or phrase:"
+    puts "Would you like to find some books to read? y/n"
   end
 
   def call
-    get_books
+    user_input = nil
+    
+    while user_input != 'exit'
+      user_input = gets.chomp.downcase
+      case user_input
+      when 'y'
+        get_books
+      when user_input.to_i <= 5
+        save_book
+      end
+    end
   end
 
   def get_books
+    puts "Enter a word or phrase to find some books:"
+    
     user_input = gets.chomp.downcase
+
+
     Reader::GetBook.from_google_books(user_input)
     display_books
   end
@@ -26,10 +40,12 @@ class Reader::CLI
       puts "    Publisher: #{book.publisher}"
       puts ""
     end
-    puts "To save a book to your reading list, enter the corresponding number:"
+    save_book
   end
 
   def save_book
+    puts "To save a book to your reading list, enter the corresponding number:"
+
     user_input = gets.chomp.downcase
 
     index = user_input.to_i-1
@@ -40,6 +56,8 @@ class Reader::CLI
 
     puts "Saved!"
   end
+
+
 
 
 
