@@ -9,6 +9,7 @@ class Reader::CLI
     
     while user_input != 'exit'
       user_input = gets.chomp.downcase
+
       case user_input
       when 'y'
         get_books
@@ -20,12 +21,16 @@ class Reader::CLI
         save_book
       when 'list'
         view_list
+      when 'prev'
+        display_books
       end
     end
     puts "Goodbye!"
   end
 
   def get_books
+    clear_search
+
     puts "Enter a word or phrase to find some books:"
     
     user_input = gets.chomp.downcase
@@ -57,9 +62,9 @@ class Reader::CLI
 
     Reader::ReadingList.add_to_list(book)
 
-    clear_search
-
     puts "Saved!"
+    puts ""
+    puts "To view your previous search, enter 'prev'"
     puts "To view your reading list, enter 'list'"
     puts "To search again, enter 'search'"
     puts "To exit, enter 'exit'"
@@ -68,6 +73,7 @@ class Reader::CLI
   def view_list
     list = Reader::ReadingList.view_list
     
+    puts ""
     puts "MY READING LIST"
 
     list.each.with_index(1) do |list_item, index|
@@ -77,8 +83,12 @@ class Reader::CLI
       puts "    Publisher: #{list_item.publisher}"
       puts ""
     end
+
+    puts "To view your previous search, enter 'prev'"
+    puts "To search again, enter 'search'"
   end
 
   def clear_search
+    Reader::Book.clear
   end
 end
