@@ -57,6 +57,8 @@ class Reader::CLI
 
     Reader::ReadingList.add_to_list(book)
 
+    clear_search
+
     puts "Saved!"
     puts "To view your reading list, enter 'list'"
     puts "To search again, enter 'search'"
@@ -75,5 +77,8 @@ class Reader::CLI
       puts "    Publisher: #{list_item.publisher}"
       puts ""
     end
+  end
+
+  def clear_search
   end
 end
