@@ -11,7 +11,11 @@ class Reader::GetBook
     books['items'].each do |item|
       title       = item['volumeInfo']['title']
       subtitle    = item['volumeInfo']['subtitle']
-      author      = item ['volumeInfo']['authors'].join(', ')
+      if item['volumeInfo']['authors']
+        author = item ['volumeInfo']['authors'].join(', ')
+      else
+        author = 'Author not found'
+      end
       if item['volumeInfo']['publisher']
         publisher = item['volumeInfo']['publisher']
       else
