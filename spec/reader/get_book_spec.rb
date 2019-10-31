@@ -14,6 +14,8 @@ RSpec.describe Reader::GetBook do
       books = Reader::Book.all
 
       expect(books.last.title).to eq('Ruby on Rails Tutorial')
+      expect(books.last.subtitle).to eq('Learn Web Development with Rails')
+      expect(books.last.author).to eq('Michael Hartl')
     end
 
 

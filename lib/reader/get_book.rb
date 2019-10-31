@@ -11,7 +11,7 @@ class Reader::GetBook
     books['items'].each do |item|
       title = item['volumeInfo']['title']
       subtitle = item['volumeInfo']['subtitle']
-      author = item ['volumeInfo']['authors']
+      author = item ['volumeInfo']['authors'].join(', ')
       publisher = item['volumeInfo']['publisher']
       
       Reader::Book.new(title, subtitle, author, publisher)
