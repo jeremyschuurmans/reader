@@ -8,6 +8,15 @@ class Reader::GetBook
     response = Net::HTTP.get(uri)
     books = JSON.parse(response)
 
+    books['items'].each do |item|
+      title = item['volumeInfo']['title']
+      subtitle = item['volumeInfo']['subtitle']
+      author = item ['volumeInfo']['authors']
+      publisher = item['volumeInfo']['publisher']
+      
+      Reader::Book.new(title, subtitle, author, publisher)
+    end
+
   end
 
 
