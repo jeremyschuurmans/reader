@@ -6,7 +6,8 @@ RSpec.describe Reader::GetBook do
     it 'can fetch and parse books data from the Google Books API' do
      VCR.use_cassette("reader") do
        response = Reader::GetBook.from_google_books('ruby')
-       expect(response).to be_a(Array) # When the method parses the json it's a hash, but then it sets it to a variable (books) and iterates over books['items'] which is an Array. 
+       expect(response).to be_a(Array)  
+       # When the method parses the json it's a hash, but then it sets it to a variable (books) and iterates over books['items'] which is an Array. 
       end
     end
 
@@ -18,8 +19,5 @@ RSpec.describe Reader::GetBook do
       expect(books.last.author).to eq('Michael Hartl')
       expect(books.last.publisher).to eq('Addison-Wesley')
     end
-
-
-
   end
 end
