@@ -5,6 +5,7 @@ class Reader::ReadingList
     @@list << book
   end
 
-
-
+  def self.view_list
+    @@list
+  end
 end
