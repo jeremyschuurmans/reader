@@ -58,7 +58,17 @@ class Reader::CLI
   end
 
   def view_list
+    list = Reader::ReadingList.all
+    
+    puts "MY READING LIST"
 
+    list.each.with_index(1) do |list_item, index|
+      puts "#{index} - Title: #{list_item.title}"
+      puts "           #{list_item.subtitle}" if list_item.subtitle != nil
+      puts "    Author: #{list_item.author}"
+      puts "    Publisher: #{list_item.publisher}"
+      puts ""
+    end
   end
 
 
