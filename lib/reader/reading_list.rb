@@ -1,0 +1,5 @@
+class Reader::ReadingList
+
+
+
+end
