@@ -32,4 +32,12 @@ RSpec.describe Reader::Book do
       expect(Reader::Book.all).to include(another_book)
     end
   end
+
+  describe '.clear' do
+    it 'clears the array' do
+      Reader::Book.clear
+
+      expect(books).to eq([])
+    end
+  end
 end
