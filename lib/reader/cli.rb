@@ -20,10 +20,10 @@ class Reader::CLI
     books = Reader::Book.all
 
     books.each.with_index(1) do |book, index|
-      puts "#{index} - #{book.title}"
-      puts "#{book.subtitle}" if book.subtitle != nil
-      puts "#{book.author}"
-      puts "#{book.publisher}"
+      puts "#{index} - Title: #{book.title}"
+      puts "           #{book.subtitle}" if book.subtitle != nil
+      puts "    Author: #{book.author}"
+      puts "    Publisher: #{book.publisher}"
     end
   end
 
