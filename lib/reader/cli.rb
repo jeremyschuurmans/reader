@@ -1,6 +1,4 @@
 class Reader::CLI
-  require 'pry'
-
   def initialize
     puts "Welcome to Reader!"
     puts "Would you like to find some books to read? y/n"
@@ -14,19 +12,26 @@ class Reader::CLI
       case user_input
       when 'y'
         get_books
+      when 'search'
+        get_books
+      when 'n'
+        puts "To exit, type 'exit'"
       when user_input.to_i <= 5
         save_book
+      when 'list'
+        view_list
       end
     end
+    puts "Goodbye!"
   end
 
   def get_books
     puts "Enter a word or phrase to find some books:"
     
     user_input = gets.chomp.downcase
-
-
+    
     Reader::GetBook.from_google_books(user_input)
+
     display_books
   end
 
@@ -47,18 +52,19 @@ class Reader::CLI
     puts "To save a book to your reading list, enter the corresponding number:"
 
     user_input = gets.chomp.downcase
-
-    index = user_input.to_i-1
-
-    book = Reader::Book.all[index]
+    index      = user_input.to_i-1
+    book       = Reader::Book.all[index]
 
     Reader::ReadingList.add_to_list(book)
 
     puts "Saved!"
+    puts "To view your reading list, enter 'list'"
+    puts "To search again, enter 'search'"
+    puts "To exit, enter 'exit'"
   end
 
   def view_list
-    list = Reader::ReadingList.all
+    list = Reader::ReadingList.view_list
     
     puts "MY READING LIST"
 
@@ -70,9 +76,4 @@ class Reader::CLI
       puts ""
     end
   end
-
-
-
-
-
 end
