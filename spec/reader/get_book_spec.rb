@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'pry'
 
 RSpec.describe Reader::GetBook do
+  # These tests may need to altered with data from spec/fixtures/vcr_cassettes/reader.yml if VCR creates a new cassette, or spec/fixtures is deleted.
   describe '.from_google_books' do
     it 'can fetch and parse books data from the Google Books API' do
      VCR.use_cassette("reader") do

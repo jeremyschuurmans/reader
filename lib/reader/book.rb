@@ -3,9 +3,9 @@ class Reader::Book
 
   @@books = []
 
-  def initialize(title, subtitle = nil,  author, publisher)
+  def initialize(title, subtitle = nil, author, publisher)
     @title     = title
-    @subtitle  = subtitle
+    @subtitle  = subtitle # defaults to nil in case some books don't have a subtitle.
     @author    = author
     @publisher = publisher
     @@books << self
