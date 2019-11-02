@@ -26,7 +26,7 @@ RSpec.describe Reader::Book do
 
   describe '.all' do
     it 'returns array of Book objects' do
-      expect(Reader::Book.all).to be_a_kind_of(Array)
+      expect(Reader::Book.all).to be_a(Array)
         
       expect(Reader::Book.all).to include(book)
       expect(Reader::Book.all).to include(another_book)
