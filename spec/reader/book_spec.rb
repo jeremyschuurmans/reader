@@ -2,9 +2,9 @@ require 'spec_helper'
 require 'pry'
 
 RSpec.describe Reader::Book do
-  let(:book) { Reader::Book.new('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribners' ) }
+  let(:book)         { Reader::Book.new('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribners' ) }
   let(:another_book) { Reader::Book.new('The Sun Also Rises', 'Ernest Hemingway', 'Scribners' ) }
-  let(:books) { Reader::Book.class_variable_get(:@@books) }
+  let(:books)        { Reader::Book.class_variable_get(:@@books) }
 
   describe '@@books' do
     it 'is an array' do
