@@ -1,18 +1,17 @@
 class Reader::CLI
   def initialize
     puts "Welcome to Reader!"
-    puts "Would you like to find some books to read? y/n"
   end
 
   def call
+    get_books
+
     user_input = nil
     
     while user_input != 'exit'
       user_input = gets.chomp.downcase
 
       case user_input
-      when 'y'
-        get_books
       when 'search'
         get_books
       when 'n'
