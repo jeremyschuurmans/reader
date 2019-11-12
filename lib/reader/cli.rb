@@ -9,14 +9,12 @@ class Reader::CLI
     user_input = nil
     
     while user_input != 'exit'
-      user_input = gets.chomp.downcase
+      user_input = Reader::UserInput.new.get_input
 
       case user_input
       when 'search'
         get_books
-      when 'n'
-        puts "To exit, type 'exit'"
-      when user_input.to_i <= 5
+      when user_input.is_a?(Integer) 
         save_book
       when 'list'
         view_list
@@ -31,8 +29,8 @@ class Reader::CLI
     clear_search
 
     puts "Enter a word or phrase to find some books:"
-    
-    user_input = gets.chomp.downcase
+
+    user_input = Reader::UserInput.new.get_input
     
     Reader::GetBook.from_google_books(user_input)
 
@@ -54,9 +52,7 @@ class Reader::CLI
 
   def save_book
     puts "To save a book to your reading list, enter the corresponding number:"
-
-    user_input = gets.chomp.downcase
-    index      = user_input.to_i-1
+    index      = Reader::UserInput.new.get_input
     book       = Reader::Book.all[index]
 
     Reader::ReadingList.add_to_list(book)
