@@ -8,4 +8,7 @@ class Reader::UserInput
     @input.gets.chomp.downcase
   end
 
+  def convert_input
+  end
+
 end
