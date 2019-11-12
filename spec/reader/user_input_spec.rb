@@ -14,11 +14,14 @@ RSpec.describe Reader::UserInput do
 
   describe '#convert_input' do
     it "converts strings '1' through '5' to integers and substracts 1" do
-      input = StringIO.new("1\n")
+      numerical_string     = "1"
+      numerical_string_too = "5"
 
-      user_input = Reader::UserInput.new(input)
+      numerical_input = Reader::UserInput.new(numerical_string)
+      numerical_input_too = Reader::UserInput.new(numerical_string_too)
 
-      expect(user_input.convert_input).to eq(1)
+      expect(numerical_input.convert_input).to eq(0)
+      expect(numerical_input_too.convert_input).to eq(4)
     end
   end
 end
