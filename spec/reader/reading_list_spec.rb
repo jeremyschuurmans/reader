@@ -1,38 +1,53 @@
 require 'spec_helper'
 
-RSpec.describe Reader::ReadingList do
-  let(:list)   { Reader::ReadingList.class_variable_get(:@@list) }
-  let(:book)   { Reader::Book.all.last }
-  let(:book_2) { Reader::Book.all.first }
+RSpec.describe Reader::ListCreator do
+  describe '.create_list' do
+    it 'creates a list of book objects when new books are instantiated' do
+      book_1     = Reader::Book.new("The Brothers Karamazov", "Fyodor Dostoevsky", "Random House")
+      book_2     = Reader::Book.new("A Moveable Feast", "Ernest Hemingway", "Scribners")
+      books_list = Reader::ListCreator.instance_variable_get(:@books)
 
-  describe '@@list' do
-    it 'is an array' do
-      expect(list).to be_a(Array)
+      expect(books_list).to include(book_1)
+      expect(books_list).to include(book_2)
+
+      books_list.clear
     end
   end
 
   describe '.add_to_list' do
     it 'adds books to the reading list' do
-      Reader::ReadingList.add_to_list(book)
-      Reader::ReadingList.add_to_list(book_2)
+      book_1       = Reader::Book.new("Ruby on Rails Tutorial", "Learn Web Development with Rails", "Michael Hartl", "Addison-Wesley")
+      book_2       = Reader::Book.new("Ruby", "Cynthia Bond", "Hogarth Press")
+      reading_list = Reader::ListCreator.instance_variable_get(:@reading_list)
 
-      expect(list[0].title).to eq('Ruby on Rails Tutorial')
-      expect(list[1].title).to eq('Ruby')
-      expect(list[0].subtitle).to eq('Learn Web Development with Rails')
-      expect(list[1].subtitle).to eq(nil)
-      expect(list[0].author).to eq('Michael Hartl')
-      expect(list[1].author).to eq('Cynthia Bond')
-      expect(list[0].publisher).to eq('Addison-Wesley')
-      expect(list[1].publisher).to eq('Hogarth Press')
+      Reader::ListCreator.add_to_reading_list(book_1)
+      Reader::ListCreator.add_to_reading_list(book_2)
+
+      expect(reading_list[0].title).to eq('Ruby on Rails Tutorial')
+      expect(reading_list[1].title).to eq('Ruby')
+      expect(reading_list[0].subtitle).to eq('Learn Web Development with Rails')
+      expect(reading_list[1].subtitle).to eq(nil)
+      expect(reading_list[0].author).to eq('Michael Hartl')
+      expect(reading_list[1].author).to eq('Cynthia Bond')
+      expect(reading_list[0].publisher).to eq('Addison-Wesley')
+      expect(reading_list[1].publisher).to eq('Hogarth Press')
+
+      reading_list.clear
     end
   end
 
   describe '.view_list' do
     it 'returns the reading list array' do
-      reading_list = Reader::ReadingList.view_list
+      book_1 = Reader::Book.new("The Well-Grounded Rubyist", "David A. Black", "Manning")
+      
+      Reader::ListCreator.add_to_reading_list(book_1)
+
+      reading_list = Reader::ListCreator.view_list
 
       expect(reading_list).to be_a(Array)
-      expect(reading_list.size).to eq(2)
+      expect(reading_list.size).to eq(1)
+
+      reading_list.clear
     end
   end
 end
