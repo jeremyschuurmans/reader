@@ -38,7 +38,7 @@ class Reader::CLI
   end
 
   def display_books
-    books = Reader::Book.all
+    books = Reader::ListCreator.all_books
 
     books.each.with_index(1) do |book, index|
       puts "#{index} - Title: #{book.title}"
@@ -53,9 +53,9 @@ class Reader::CLI
   def save_book
     puts "To save a book to your reading list, enter the corresponding number:"
     index      = Reader::UserInput.new.get_input
-    book       = Reader::Book.all[index]
+    book       = Reader::ListCreator.all_books[index]
 
-    Reader::ReadingList.add_to_list(book)
+    Reader::ListCreator.add_to_reading_list(book)
 
     puts "Saved!"
     puts ""
@@ -66,7 +66,7 @@ class Reader::CLI
   end
 
   def view_list
-    list = Reader::ReadingList.view_list
+    list = Reader::ListCreator.view_list
     
     puts ""
     puts "MY READING LIST"
@@ -84,6 +84,6 @@ class Reader::CLI
   end
 
   def clear_search
-    Reader::Book.clear
+    Reader::ListCreator.all_books.clear
   end
 end
