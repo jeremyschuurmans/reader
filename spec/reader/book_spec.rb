@@ -4,13 +4,6 @@ require 'pry'
 RSpec.describe Reader::Book do
   let(:book)         { Reader::Book.new('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribners' ) }
   let(:another_book) { Reader::Book.new('The Sun Also Rises', 'Ernest Hemingway', 'Scribners' ) }
-  let(:books)        { Reader::Book.class_variable_get(:@@books) }
-
-  describe '@@books' do
-    it 'is an array' do
-      expect(books).to be_a(Array)
-    end
-  end
 
   describe '#initialize' do
     it 'initializes with a title, author, and publishing company' do
@@ -21,23 +14,6 @@ RSpec.describe Reader::Book do
 
     it 'defaults subtitle to nil when no subtitle is given' do
       expect(book.subtitle).to eq(nil)
-    end
-  end
-
-  describe '.all' do
-    it 'returns array of Book objects' do
-      expect(Reader::Book.all).to be_a(Array)
-        
-      expect(Reader::Book.all).to include(book)
-      expect(Reader::Book.all).to include(another_book)
-    end
-  end
-
-  describe '.clear' do
-    it 'clears the array' do
-      Reader::Book.clear
-
-      expect(books).to eq([])
     end
   end
 end
