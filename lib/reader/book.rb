@@ -6,5 +6,7 @@ class Reader::Book
     @subtitle  = subtitle # defaults to nil in case some books don't have a subtitle.
     @author    = author
     @publisher = publisher
+    
+    Reader::ListCreator.create_list(self)
   end
 end
