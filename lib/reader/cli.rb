@@ -79,7 +79,7 @@ class Reader::CLI
       user_prompts
     else
       puts ""
-      puts "You must enter a number to save a book. Enter 'prev' to view your previous search and save books."
+      puts "You must enter the corresponding number to save a book. Enter 'prev' to view your previous search and save books."
       puts ""
 
       user_prompts
