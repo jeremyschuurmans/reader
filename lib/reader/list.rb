@@ -1,4 +1,4 @@
-class Reader::ListCreator
+class Reader::List
   @books        = []
   @reading_list = []
   

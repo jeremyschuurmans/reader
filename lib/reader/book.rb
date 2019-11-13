@@ -7,6 +7,6 @@ class Reader::Book
     @author    = author
     @publisher = publisher
     
-    Reader::ListCreator.create_list(self)
+    Reader::List.create_list(self) # creates a list of books received from the API which will render to the user in Reader::CLI
   end
 end
