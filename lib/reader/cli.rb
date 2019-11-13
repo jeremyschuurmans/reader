@@ -101,9 +101,8 @@ class Reader::CLI
       puts ""
       puts ""
       puts ""
-      
-      user_prompts
     end
+    user_prompts
   end
 
   def user_prompts
