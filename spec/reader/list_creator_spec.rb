@@ -10,7 +10,8 @@ RSpec.describe Reader::ListCreator do
       expect(books_list).to include(book_1)
       expect(books_list).to include(book_2)
 
-      books_list.clear
+      Reader::ListCreator.all_books.clear
+      Reader::ListCreator.view_list.clear
     end
   end
 
@@ -32,7 +33,8 @@ RSpec.describe Reader::ListCreator do
       expect(reading_list[0].publisher).to eq('Addison-Wesley')
       expect(reading_list[1].publisher).to eq('Hogarth Press')
 
-      reading_list.clear
+      Reader::ListCreator.all_books.clear
+      Reader::ListCreator.view_list.clear
     end
   end
 
@@ -47,7 +49,8 @@ RSpec.describe Reader::ListCreator do
       expect(reading_list).to be_a(Array)
       expect(reading_list.size).to eq(1)
 
-      reading_list.clear
+      Reader::ListCreator.all_books.clear
+      Reader::ListCreator.view_list.clear
     end
   end
 end
