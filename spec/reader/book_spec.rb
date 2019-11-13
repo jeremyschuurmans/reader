@@ -11,7 +11,7 @@ RSpec.describe Reader::Book do
       expect(book.publisher).to eq('Scribners')
       expect(book.subtitle).to eq(nil)
 
-      Reader::ListCreator.all_books.clear
+      Reader::List.all_books.clear
     end
   end
 end
