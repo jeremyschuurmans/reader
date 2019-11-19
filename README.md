@@ -16,13 +16,12 @@ Welcome to Reader! This CLI makes it easy to find great books to read. Enter any
 ## Usage
 
 1. Run `ruby ./bin/read` to start the program.
-2. It will ask if you'd like to find something to read. Enter 'y' for yes.
-3. Enter a word or phrase to search for relevant books.
-4. A numbered list of five books will appear, showing title, author, and publisher.
-5. Add a book to your reading list by entering the corresponding number.
-6. You can then view your most recent search, or search again.
-7. When you finish searching, view your list to see all the books you are interested in. Be sure to copy this list elsewhere, since it will not persist after you exit the program.
-8. Obtain those books from your supplier of choice and read to your heart's content!
+2. Enter a word or phrase to search for relevant books.
+3. A numbered list of five books will appear, showing title, author, and publisher.
+4. Add a book to your reading list by entering the corresponding number.
+5. You can then view your most recent search, or search again.
+6. When you finish searching, view your list to see all the books you are interested in. Be sure to copy this list elsewhere, since it will not persist after you exit the program.
+7. Obtain those books from your supplier of choice and read to your heart's content!
 
 ## Development
 
