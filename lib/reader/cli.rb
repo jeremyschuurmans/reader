@@ -99,9 +99,9 @@ class Reader::CLI
       puts "    Author: #{list_item.author}"
       puts "    Publisher: #{list_item.publisher}"
       puts ""
-      puts ""
-      puts ""
     end
+    puts ""
+    puts ""
     user_prompts
   end
 
