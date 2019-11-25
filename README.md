@@ -9,7 +9,7 @@ Welcome to Reader! This CLI makes it easy to find great books to read. Enter any
 3. Run `bundle install` to install required gems.
 4. Open the program in your text editor of choice.
 5. You will need to supply your own Google Books API key for Reader to function. Just follow [these directions](https://developers.google.com/books/docs/v1/using) to set one up.
-6. Create a file in the `reader` directory called `.env`
+6. Create a file in the root directory called `.env`
 7. In `.env`, add your API key like so: `GOOGLE_BOOKS_KEY='enter your personal API key here'` (This file is gitignored in case you are developing on this program).
 8. Run `rspec` to test. Green means you're good to go!
 
